@@ -8,21 +8,21 @@ import logo from '../../assets/epic7ata-logo.png';
 
 const Navbar = () => {
     return (
-        <nav className="flex justify-around items-center w-full bg-slate-50 py-3 shadow-lg">
+        <nav className="flex justify-around items-center w-full py-3">
             <ul className="flex w-[550px] justify-around font-bold text-lg">
                 <li className="hover:text-blue-500 duration-100">
                     <Link to='/'>Home</Link>
                 </li>
-                <li>
+                <li className="hover:text-blue-500 duration-100">
                     <Link to='/print'>Print</Link>
                 </li>
-                <li>
+                <li className="hover:text-blue-500 duration-100">
                     <Link to="/shop">Shop</Link>
                 </li>
-                <li>
+                <li className="hover:text-blue-500 duration-100">
                     <Link to="/about">About</Link>
                 </li>
-                <li>
+                <li className="hover:text-blue-500 duration-100">
                     <Link to="/contact">Contact</Link>
                 </li>
             </ul>
@@ -47,8 +47,8 @@ const Navbar = () => {
 
 
                 <div className="flex gap-5">
-                    <button className="border-2 border-blue-500 bg-blue-500 rounded-lg text-white text-lg font-semibold py-1 px-3 hover:bg-blue-600 hover:border-blue-600 duration-100">Sign in</button>
-                    <button className="border-2 border-blue-500 bg-transparent rounded-lg text-blue-500 text-lg font-semibold py-1 px-3 hover:bg-blue-500 hover:text-white duration-100">Log in</button>
+                    <button className="border-2 border-gray-950 bg-gray-950 rounded-lg text-white text-lg font-semibold py-1 px-3 hover:bg-gray-900 hover:border-gray-900 duration-100">Sign in</button>
+                    <button className="border-2 border-gray-950 bg-transparent rounded-lg text-gray-950 text-lg font-semibold py-1 px-3 hover:bg-gray-950 hover:text-white duration-100">Log in</button>
                 </div>
 
                 <button className="text-4xl hover:text-blue-500 duration-100 " > <PiShoppingCartSimpleFill /> </button>

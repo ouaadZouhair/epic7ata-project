@@ -14,9 +14,9 @@ const TopNav = () =>{
             </div>
             <div>
                 <ul className="flex justify-between items-center text-2xl text-white gap-3">
-                    <li className="hover:text-green-500 duration-100"><IoLogoWhatsapp/></li>
-                    <li className="hover:text-sky-500 duration-100" ><IoLogoTiktok/></li>
-                    <li className="hover:text-pink-500 duration-100"><FiInstagram/></li>
+                    <li className="hover:text-green-500 cursor-pointer hover:scale-125 duration-100"><IoLogoWhatsapp/></li>
+                    <li className="hover:text-blue-500 cursor-pointer hover:scale-125 duration-100" ><IoLogoTiktok/></li>
+                    <li className="hover:text-pink-500 cursor-pointer hover:scale-125 duration-100"><FiInstagram/></li>
                 </ul>
             </div>
         </div>

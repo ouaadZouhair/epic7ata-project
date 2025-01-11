@@ -7,6 +7,8 @@ import Shop from "./pages/Shop.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 
+
+
 function App() {
 
   return (
@@ -23,7 +25,6 @@ function App() {
             <Route path="/contact" element={<Contact/>}/>
         </Routes>
       </Router>
-
     </>
   )
 }
