@@ -11,7 +11,7 @@ import 'swiper/css/scrollbar';
 import "swiper/css/effect-fade";
 import 'swiper/css';
 
-import "./HeroSlider.css";
+import  "./HeroSlider.css";
 
 const HeroSlider = () => {
     return (
@@ -23,9 +23,9 @@ const HeroSlider = () => {
                 slidesPerView={1}
                 navigation
                 pagination={{ clickable: false }}
-                autoplay={{ delay: 5000, disableOnInteraction: false }}
+                autoplay={{ delay: 6000, disableOnInteraction: false }}
 
-                className='relative w-full h-full'
+                className='heroSlider relative w-full h-full'
             >
                 <SwiperSlide><img src={image1} className='w-full h-full' alt="" /></SwiperSlide>
                 <SwiperSlide><img src={image2} className='w-full h-full' alt="" /></SwiperSlide>
