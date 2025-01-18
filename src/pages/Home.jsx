@@ -8,7 +8,9 @@ import TopSellsSlider from "../components/TopSellsSlider/TopSellsSlider.jsx";
 import FeaturedProducts from "../components/FeaturedProducts/featuredProducts.jsx";
 import PrintingS from "../components/PrintingSection/PrintingS.jsx";
 
-const Home = () => {
+const Home = (props) => {
+
+    
     return (
         <>
             <Hero>
@@ -20,8 +22,8 @@ const Home = () => {
 
             <Container>
                 <Categories />
-                <TopSellsSlider/>
-                <FeaturedProducts/>
+                <TopSellsSlider products={props.Products}/>
+                <FeaturedProducts products={props.Products}/>
                 <PrintingS/>
             </Container>
 
