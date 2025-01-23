@@ -23,7 +23,7 @@
   .circle {
     width: 115px;
     height: 115px;
-    background: radial-gradient(#44b9df, #537fef);
+    background: radial-gradient(#44a6df, #4375f1);
     border-radius: 50%;
     position: absolute;
     animation: move-up6 2s ease-in infinite alternate-reverse;

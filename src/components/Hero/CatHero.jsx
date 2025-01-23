@@ -4,9 +4,6 @@ import { GiStarFormation } from "react-icons/gi";
 import { BsStars } from "react-icons/bs";
 
 
-
-
-
 const CatHero = () => {
     return (
         <div className="flex justify-around items-center gap-8 py-5 w-[100%]  bg-gray-900">

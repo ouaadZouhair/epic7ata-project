@@ -2,6 +2,9 @@ import './TopSellsSlider.css';
 import CardProduct from '../CardProduct/CardProduct';
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import { useRef, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../slice/CartShippingSlice';
 
 
 
@@ -12,8 +15,15 @@ const TopSellsSlider = (props) => {
     const btnPrev = useRef();
     const btnNext = useRef();
 
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch()
+
     const TopSelling = props.products.filter(product => product.isTopSelling);
 
+    const handleAddToCart = (product) =>{
+        dispatch(addItem({...product, quantity:1}))
+    }
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
@@ -28,6 +38,11 @@ const TopSellsSlider = (props) => {
                 : prevIndex + 1
         );
     };
+
+    const handleProductClick = (id) =>{
+        navigate(`/product/${id}`)
+    };
+
     useEffect(() => {
         if (btnNext.current && btnPrev.current) {
             if (currentIndex === 0) {
@@ -58,9 +73,9 @@ const TopSellsSlider = (props) => {
                 </div>
             </div>
 
-            <div className="slider_sells overflow-hidden my-7">
+            <div className="slider_sells overflow-hidden my-5">
                 <div
-                    className='slider-track_sells flex justify-between items-center gap-9 w-full h-[500px]'
+                    className='slider-track_sells flex justify-between items-center gap-9 w-full h-[530px]'
                     style={{
                         transform: `translateX(-${(100 / cardsPerView) * currentIndex}%)`,
                     }}
@@ -73,16 +88,13 @@ const TopSellsSlider = (props) => {
                             title={product.title}
                             description={product.description}
                             price={product.price}
+                            onClick ={()=>handleProductClick(product.id)}
+                            onAddToCart={()=>handleAddToCart(product)}
                         />
                     ))}
 
                 </div>
             </div>
-
-
-
-
-
 
         </div >
     )

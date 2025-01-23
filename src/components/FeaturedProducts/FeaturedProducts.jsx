@@ -2,15 +2,18 @@ import './FeaturedProducts.css';
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import CardProduct from '../CardProduct/CardProduct';
 import { useRef, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 
 
 const FeaturedProducts = (props) => {
 
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [cardsPerView, setCardsPreView] = useState(4)
+    const [cardsPerView, setCardsPreView] = useState(3)
     const btnPrev = useRef();
     const btnNext = useRef();
+
+    const navigate = useNavigate();
 
     const NewProducts = props.products.filter(product => product.isNew);
 
@@ -27,6 +30,11 @@ const FeaturedProducts = (props) => {
                 : prevIndex + 1
         );
     };
+
+    const handleProductClick = (id) =>{
+        navigate(`/product/${id}`)
+    };
+
     useEffect(() => {
         if (btnNext.current && btnPrev.current) {
             if (currentIndex === 0) {
@@ -57,9 +65,9 @@ const FeaturedProducts = (props) => {
                 </div>
             </div>
 
-            <div className="slider_featured overflow-hidden my-7">
+            <div className="slider_featured overflow-hidden my-5">
                 <div
-                    className="slider-track_featured flex justify-between items-center gap-9 w-full h-[500px]"
+                    className="slider-track_featured flex justify-between items-center gap-9 w-full h-[530px]"
                     style={{
                         transform: `translateX(-${(100 / cardsPerView) * currentIndex}%)`,
                     }}
@@ -72,6 +80,7 @@ const FeaturedProducts = (props) => {
                             title={NewProduct.title}
                             description={NewProduct.description}
                             price={NewProduct.price}
+                            onClick ={()=>handleProductClick(NewProduct.id)}
                         />
                     ))}
                 </div>

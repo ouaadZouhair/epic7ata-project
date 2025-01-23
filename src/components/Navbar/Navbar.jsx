@@ -5,33 +5,37 @@ import { IoSearch } from "react-icons/io5";
 import { FaXmark } from "react-icons/fa6";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 
-import CartShipping from "../CartShipping/CartShipping";
+import CartShipping from "../CartShipping/CartShipping"; 
 
 
 const Navbar = () => {
-    const [cardCounter, setcardCounter] = useState(0)
+    const [cardCounter, setCardCounter] = useState(0)
     const [isCartVisible, setIsCartVisible] = useState(0);
 
     const openCart = () => setIsCartVisible(true);
     const closeCart = () => setIsCartVisible(false);
 
+    const handleCartCounter = (data) =>{
+        setCardCounter(data)
+    }
+
     return (
         <div>
             <nav className="flex justify-around items-center w-full py-3 z-50">
-                <ul className="flex w-[550px] justify-around font-semibold text-xl">
-                    <li className="hover:text-blue-500 duration-100">
+                <ul className="flex w-[550px] justify-around font-bold text-xl">
+                    <li className="relative hover:text-blue-500 duration-200 after:content-[''] after:h-1 after:w-0 after:bg-blue-500 after:absolute after:-bottom-2 after:left-0 after:rounded-full after:hover:w-full after:duration-200">
                         <Link to='/'>Home</Link>
                     </li>
-                    <li className="hover:text-blue-500 duration-100">
+                    <li className="relative hover:text-blue-500 duration-200 after:content-[''] after:h-1 after:w-0 after:bg-blue-500 after:absolute after:-bottom-2 after:left-0 after:rounded-full after:hover:w-full after:duration-200">
                         <Link to='/print'>Print</Link>
                     </li>
-                    <li className="hover:text-blue-500 duration-100">
+                    <li className="relative hover:text-blue-500 duration-200 after:content-[''] after:h-1 after:w-0 after:bg-blue-500 after:absolute after:-bottom-2 after:left-0 after:rounded-full after:hover:w-full after:duration-200">
                         <Link to="/shop">Shop</Link>
                     </li>
-                    <li className="hover:text-blue-500 duration-100">
+                    <li className="relative hover:text-blue-500 duration-200 after:content-[''] after:h-1 after:w-0 after:bg-blue-500 after:absolute after:-bottom-2 after:left-0 after:rounded-full after:hover:w-full after:duration-200">
                         <Link to="/about">About</Link>
                     </li>
-                    <li className="hover:text-blue-500 duration-100">
+                    <li className="relative hover:text-blue-500 duration-200 after:content-[''] after:h-1 after:w-0 after:bg-blue-500 after:absolute after:-bottom-2 after:left-0 after:rounded-full after:hover:w-full after:duration-200">
                         <Link to="/contact">Contact</Link>
                     </li>
                 </ul>
@@ -66,7 +70,7 @@ const Navbar = () => {
                     </button>
                 </div>
             </nav>
-            <CartShipping visibility={isCartVisible} onClose={closeCart} cardCounter={cardCounter} />
+            <CartShipping visibility={isCartVisible} onClose={closeCart} fnData = {handleCartCounter} />
         </div>
     )
 }
