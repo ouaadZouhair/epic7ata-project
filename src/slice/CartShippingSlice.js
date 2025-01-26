@@ -9,7 +9,7 @@ const CartShippingSlice = createSlice({
     reducers:{
         addItem: (state, action) => {
             const item = action.payload;
-            const existtingItem = state.items.find(i => i.id === item.id);
+            const existtingItem = state.items.find(i => i.id === item.id && i.color === item.color && i.size === item.size);
 
             if(existtingItem){
                 existtingItem.quantity += item.quantity;
@@ -19,8 +19,8 @@ const CartShippingSlice = createSlice({
         },
 
         removeItem: (state, action) => {
-            const id = action.payload;
-            state.items = state.items.filter(item => item.id !== id);
+            const {id, color, size} = action.payload;
+            state.items = state.items.filter(item => !(item.id === id && item.color === color && item.size === size));
         },
 
         clearCart: (state) => {

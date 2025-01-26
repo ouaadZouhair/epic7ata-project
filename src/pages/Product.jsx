@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { FaCheck } from "react-icons/fa6";
 import Footer from "../components/footer/Footer";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../slice/CartShippingSlice";
+import { useParams } from "react-router-dom";
+import { FaCheck } from "react-icons/fa6";
 
 const Product = (props) => {
   const { id } = useParams();
@@ -22,6 +22,7 @@ const Product = (props) => {
   const [selectedColor, setSelectedColor] = useState(null); // Track selected color
   const [selectedSize, setSelectedSize] = useState(null); // Track selected size
   const [quantity, setQuantity] = useState(1); // Track selected size
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() =>{
     window.scrollTo(0, 0);
@@ -35,14 +36,21 @@ const Product = (props) => {
     setSelectedSize(size); // Update the selected color
   };
 
-  const [isLoading, setIsLoading] = useState(false);
-
   const handleAddItemtoCard = async (product) => {
     if (selectedColor && selectedSize) {
       setIsLoading(true);
       try {
-        await dispatch(addItem({ ...product, quantity, color: selectedColor, size: selectedSize }));
-        alert("Item added to cart!");
+        await dispatch(addItem({
+          productId:product.id,
+          title :product.title,
+          description:product.description,
+          price:product.price,
+          frontMockups:product.frontMockups,
+          quantity,
+          color: selectedColor,
+          size: selectedSize 
+         }));
+        
       } catch (error) {
         alert("Failed to add item to cart.");
       } finally {
@@ -52,6 +60,7 @@ const Product = (props) => {
       alert("Please select a color and size before adding to the cart.");
     }
   };
+
 
 
   return (
@@ -144,6 +153,7 @@ const Product = (props) => {
           </button>
         </div>
       </main>
+      
       <Footer />
     </>
   );

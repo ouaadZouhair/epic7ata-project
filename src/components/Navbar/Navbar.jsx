@@ -64,8 +64,8 @@ const Navbar = () => {
 
                     <button className=" relative text-4xl hover:text-blue-500 duration-100 " onClick={openCart}>
                         <PiShoppingCartSimpleFill />
-                        <div className="bg-red-500 w-4 h-4 rounded-full absolute top-0 -right-1">
-                            <span className="text-sm text-white font-semibold absolute bottom-1/2 translate-y-1/2  left-1/2 -translate-x-1/2 ">{cardCounter}</span>
+                        <div className="bg-red-500 w-[18px] h-[18px] rounded-full absolute -top-1 -right-1">
+                            <span className="text-sm text-white font-semibold absolute bottom-1/2 translate-y-1/2  left-1/2 -translate-x-1/2">{cardCounter}</span>
                         </div>
                     </button>
                 </div>
