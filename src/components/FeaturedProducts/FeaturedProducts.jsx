@@ -3,19 +3,25 @@ import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import CardProduct from '../CardProduct/CardProduct';
 import { useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../slice/CartShippingSlice';
 
 
 const FeaturedProducts = (props) => {
 
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [cardsPerView, setCardsPreView] = useState(3)
+    const [cardsPerView, setCardsPreView] = useState(4)
     const btnPrev = useRef();
     const btnNext = useRef();
 
     const navigate = useNavigate();
 
     const NewProducts = props.products.filter(product => product.isNew);
+
+    const dispatch = useDispatch()
+    const handleAddToCart = (product) => {
+        dispatch(addItem({ ...product, quantity: 1 }))
+    }
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
@@ -31,7 +37,7 @@ const FeaturedProducts = (props) => {
         );
     };
 
-    const handleProductClick = (id) =>{
+    const handleProductClick = (id) => {
         navigate(`/product/${id}`)
     };
 
@@ -80,7 +86,8 @@ const FeaturedProducts = (props) => {
                             title={NewProduct.title}
                             description={NewProduct.description}
                             price={NewProduct.price}
-                            onClick ={()=>handleProductClick(NewProduct.id)}
+                            onClick={() => handleProductClick(NewProduct.id)}
+                            onAddToCart={() => handleAddToCart(NewProduct)}
                         />
                     ))}
                 </div>

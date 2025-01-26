@@ -7,6 +7,7 @@ import Products from "../components/Products/Products.jsx";
 import TopSellsSlider from "../components/TopSellsSlider/TopSellsSlider.jsx";
 import FeaturedProducts from "../components/FeaturedProducts/featuredProducts.jsx";
 import PrintingS from "../components/PrintingSection/PrintingS.jsx";
+import Footer from "../components/footer/Footer.jsx";
 
 const Home = (props) => {
 
@@ -26,6 +27,7 @@ const Home = (props) => {
                 <FeaturedProducts products={props.Products}/>
                 <PrintingS/>
             </Container>
+            <Footer/>
 
 
         </>

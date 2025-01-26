@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import { FaXmark } from "react-icons/fa6";
+import { FaTrashAlt } from "react-icons/fa";
 import logo from "../../assets/epic7ata-logo.png";
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem } from '../../slice/CartShippingSlice';
+import { MdRemoveShoppingCart } from "react-icons/md";
+
 
 const CartShipping = ({ visibility, onClose, fnData }) => {
 
@@ -48,28 +51,35 @@ const CartShipping = ({ visibility, onClose, fnData }) => {
         <FaXmark className="text-3xl hover:text-red-500 duration-100" />
       </button>
       <h1 className="text-xl font-semibold">
-        My Cart <span className="text-lg text-gray-500">({itemsQuantity} items)</span>
+        My Cart <span className="text-sm text-gray-500">({itemsQuantity} items)</span>
       </h1>
       <img src={logo} alt="epic7ata logo" className="w-10 h-10" />
     </div>
 
     {/* Cart Items */}
-    <div className="flex flex-col justify-start items-center h-[700px] w-full gap-1 overflow-auto">
+    <div className="flex flex-col justify-start items-center h-[700px] w-full gap-1 overflow-y-auto">
       {
         cartItems.length === 0 ? (
-          <p className='text-xl font-light bg-red-400 text-white p-4 rounded-md mt-4'>They're no items in shipping card 🙂</p>
+          <div className=' flex flex-col justify-center items-center text-xl font-light text-black p-4 mt-4 h-[90%] gap-4'>
+            <MdRemoveShoppingCart className='text-black text-7xl'/>
+            <p>They're any product in shipping card</p>
+          </div>
         ):(
           cartItems.map(item => (
-            <div key={item.id} className="flex justify-between items-center w-full border-b-2 bg-gray-900 rounded-lg shadow-md p-3 text-white ">
+            <div key={item.id} className="flex justify-between items-center w-full border-b-2 h-[100px] bg-gray-900 rounded-lg shadow-md p-3 text-white my-1">
               <div className="flex justify-start items-center gap-3">
-                <img src={item.frontMockups} alt={item.title} className="w-20 h-20" />
+                <img src={item.frontMockups} alt={item.title} className="w-20 h-20 rounded-lg" />
                 <div>
-                  <h1 className="text-lg font-semibold">{item.title}</h1>
+                  <h1 className="text-sm font-semibold w-32">{item.title}</h1>
                   <h1 className="text-gray-300 text-lg font-light">{item.quantity} x {item.price} Dh</h1>
                 </div>
               </div>
+              <div className='flex flex-col justify-between items-center gap-2'>
+                <span className={`w-7 h-7 ${item.color} rounded-lg border border-gray-400`}></span>
+                <span className='w-7 h-7 rounded-log border rounded-lg text-center border-gray-400 text-gray-400'>{item.size}</span>
+              </div>
               <button onClick={() => dispatch(removeItem(item.id))}>
-                <FaXmark className="text-3xl text-red-500" />
+                <FaTrashAlt className="text-2xl text-white hover:text-red-500 duration-100" />
               </button>
             </div>
           ))
