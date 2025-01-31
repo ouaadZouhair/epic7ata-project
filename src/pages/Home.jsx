@@ -1,31 +1,33 @@
 import Container from "../components/Container.jsx";
 import Categories from "../components/Categories/Categories.jsx";
 import CatHero from "../components/Hero/CatHero.jsx";
-import Hero from "../components/Hero/Hero.jsx";
-import HeroSlider from "../components/Hero/HeroSlider.jsx";
-import Products from "../components/Products/Products.jsx";
+import HeroContainer from "../components/Hero/HeroContainer.jsx";
+import PrimaryHero from "../components/Hero/PrimaryHero.jsx";
+
 import TopSellsSlider from "../components/TopSellsSlider/TopSellsSlider.jsx";
 import FeaturedProducts from "../components/FeaturedProducts/featuredProducts.jsx";
 import PrintingS from "../components/PrintingSection/PrintingS.jsx";
 import Footer from "../components/footer/Footer.jsx";
+import SecondaryHero from "../components/Hero/SecondaryHero.jsx";
 
 const Home = (props) => {
 
     
     return (
         <>
-            <Hero>
-                <HeroSlider />
-                <CatHero />
-            </Hero>
+            <HeroContainer>
+                <PrimaryHero />
+                <SecondaryHero />
+                <CatHero/>
+            </HeroContainer>
 
-            <Products />
+           
 
             <Container>
-                <Categories />
+                {/* <Categories /> */}
+                <PrintingS/>
                 <TopSellsSlider products={props.Products}/>
                 <FeaturedProducts products={props.Products}/>
-                <PrintingS/>
             </Container>
             <Footer/>
 

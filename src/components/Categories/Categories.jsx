@@ -12,7 +12,7 @@ import 'swiper/css';
 const Categories = () => {
     return (
         <>
-        <h1 className='text-5xl font-bold text-center py-14'>Categories</h1>
+        <h1 className='text-4xl lg:text-5xl font-bold text-center py-14'>Categories</h1>
         <div className='flex justify-between items-center gap-3 pb-16'>
             <div className="card">
                 <div className="circle"></div>

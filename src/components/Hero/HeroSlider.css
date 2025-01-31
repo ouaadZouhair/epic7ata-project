@@ -30,3 +30,16 @@
     background-color: #030712; /* Active dot color */
     transform: scale(1.2); /* Optional: Make the active dot larger */
   }
+
+  @media (min-width: 300px) {
+    .swiper-button-next, .swiper-button-prev {
+      font-size: 10px; /* Adjust size */
+      width: 10px; /* Change width */
+      height: 10px; /* Change height */
+    }
+
+    .swiper-pagination-bullet{
+      width:6px;
+      height: 6px;
+    }
+  }
